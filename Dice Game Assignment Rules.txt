@@ -1,0 +1,11 @@
+Project Overview:
+Design and code a game that uses at least one 4-sided, 6-sided, 8-sided, 10-sided, 12-sided, and 20-sided dice.
+
+
+You come up with the rules and design
+
+
+The game must involve some form of user interaction (user “rolls” the dice perhaps)
+
+
+The rules must be more complicated than the game War. This means the game rules can’t be as simple as the person with the greater dice value wins. That can be part of the rules, but the game needs to be more complex than that.
