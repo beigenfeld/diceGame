@@ -76,7 +76,7 @@ switch(selectYourWeapon) {
 		console.log("You rolled a 6.  You will use the 20-sided die.")
 		break;
 }
-
+//capture result in a var myWeapon and var minotaurWeapon
 alert("Roll the 6-sided die to determine the Minotaur's weapon:");
 var selectMinotaurWeapon = Math.floor(Math.random() * 6) + 1;
 
@@ -107,16 +107,34 @@ switch(selectMinotaurWeapon) {
 		break;
 }
 
+//var myWeapon = (result of switchcase)
+//var minotaurWeapon = (result of switchcase)
+//var myHighestRoll = highest number on whatever wapon is selected
+//var minotaurHighestRoll = highest number on whatever wapon is selected
 var myMaxHP = 100;
 var minotaurMaxHP = 100;
-function battleMinotaur () {
+for battleMinotaur () {
+
+	//loop my rolls/attacks
+	//save to an array/ressign variable corresponsing to minotaur's HP
+	//accumulate damages, continue as long as less than HP
+	//report My HP and Minotaur HP after every roll by subtracting 
+	//accumulated damages from myMaxHP and minotaurMaxHP.
+
+	alert("Your roll.  Brace yourself and ATTACK!");
+	function myAttack(myWeapon) {
+		//roll, and add number onto var minotaurCurrentDamage
+		//if roll=var myHighestRoll, subtract from myCurrentDamage
+		// var minotaurMaxHP > 0, if true, continue
+		//else return console.log("You defeated the Minotaur!")
+	}
+
+	alert("Minotaur is attacking!  Defend yourself!");
+	function minotaurAttack(minotaurWeapon) {
+		//roll, and add number onto var myCurrentDamage
+		//if roll=var minotaurHighestRoll, subtract from minotaurCurrentDamage
+		//var myMaxHP > 0, if true, continue
+		//else return console.log("You lose message")
+	}
 
 }
-
-//loop my rolls/attacks
-//save to an array/ressign variable corresponsing to minotaur's HP
-//accumulate damages, continue as long as less than HP
-//report My HP and Minotaur HP after every roll by subtracting 
-//accumulated damages from myMaxHP and minotaurMaxHP.
-
-alert("Your roll.  Brace yourself and ATTACK!");
