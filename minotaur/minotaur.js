@@ -42,34 +42,40 @@ function weapon20 () {
 }
 
 function myAttack(myWeapon) {
+	var myRollResult;
+	var maxRoll;
+
 	switch (myWeapon) {
 		case 1:
-			var myRollResult = weapon4();
-			var maxRoll = 4;
+			myRollResult = weapon4();
+			maxRoll = 4;
 			break;
 		case 2:
-			var myRollResult = weapon6();
-			var maxRoll = 6;
+			myRollResult = weapon6();
+			maxRoll = 6;
 			break;
 		case 3:
-			var myRollResult = weapon8();
-			var maxRoll = 8;
+			myRollResult = weapon8();
+			maxRoll = 8;
 			break;
 		case 4:
-			var myRollResult = weapon10();
-			var maxRoll = 10;
+			myRollResult = weapon10();
+			maxRoll = 10;
 			break;
 		case 5:
-			var myRollResult = weapon12();
-			var maxRoll = 12;
+			myRollResult = weapon12();
+			maxRoll = 12;
 			break;
 		case 6:
-			var myRollResult = weapon20();
-			var maxRoll = 20;
+			myRollResult = weapon20();
+			maxRoll = 20;
 			break;
 	}
+
 	if (myRollResult === maxRoll) {
-		console.log("POWER HIT!  You have gained the vitality lost by the Minotaur! Your HP increased by " + maxRoll)
+		gainLife(maxRoll);
+		console.log("POWER HIT!  You have gained the vitality lost by the Minotaur! Your HP increased by " + maxRoll + " and is now " + (myMaxHP - myCurrentDamage));
+	
 	}
 	minotaurCurrentDamage += myRollResult;
 	if (minotaurCurrentDamage < minotaurMaxHP) {
@@ -109,6 +115,9 @@ function minotaurAttack(minotaurWeapon) {
 	}
 
 }
+
+
+
 /////////////////////////////////////
 alert ("You\'ve reached the 7th Circle of Hell!\nYou must defeat the demon Minotaur to escape!\nRoll the 6-sided die to see which weapon you will use:\n1=4-sided\n2=6-sided\n3=8-sided\n4=10-sided\n5=12-sided\n6=20-sided");
 var selectMyWeapon = Math.floor(Math.random() * 6) + 1;
@@ -159,10 +168,16 @@ switch(selectMinotaurWeapon) {
 }
 var minotaurWeapon = selectMinotaurWeapon;
 
+function gainLife (maxRoll) {
+	myCurrentDamage -= maxRoll;
+	if (myCurrentDamage <= 0) {
+		myCurrentDamage = 0;
+	}
+}
 //var myHighestRoll = highest number on whatever wapon is selected
 //var minotaurHighestRoll = highest number on whatever wapon is selected
-var myMaxHP = 20;
-var minotaurMaxHP = 20;
+var myMaxHP = 100;
+var minotaurMaxHP = 100;
 var myCurrentDamage = 0;
 var minotaurCurrentDamage = 0;
 
