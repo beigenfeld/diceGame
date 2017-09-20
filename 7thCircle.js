@@ -11,7 +11,7 @@ console.log("You rolled a " + displayRoll4side);
 console.log("You opened the First Gate! Proceed to the 2nd Circle!");
 
 function seventhCircle (displayRoll4side){
-	confirm("Are you ready to  the 6-sided die?");
+	confirm("Are you ready to roll the 6-sided die?");
 	var roll6Side = Math.random() * 6;
 	var displayRoll6side = Math.ceil(roll6Side);
 	console.log("You rolled a " + displayRoll6side);
