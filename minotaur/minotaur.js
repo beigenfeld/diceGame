@@ -111,7 +111,9 @@ var myMaxHP = 100;
 var minotaurMaxHP = 100;
 var myCurrentDamage = 0;
 var minotaurCurrentDamage = 0;
-//for/*while?*/ battleMinotaur (/*myCurrentDamage < 100 || minotaurCurrentDamage < 100 */) {
+
+
+while (myCurrentDamage < myMaxHP && minotaurCurrentDamage < minotaurMaxHP) {
 
 	//loop my rolls/attacks
 	//save to an array/ressign variable corresponsing to minotaur's HP
@@ -181,3 +183,5 @@ var minotaurCurrentDamage = 0;
 		//else return console.log("You lose message")
 	}
 	minotaurAttack(selectMinotaurWeapon);
+} 
+console.log("Battle Over");
