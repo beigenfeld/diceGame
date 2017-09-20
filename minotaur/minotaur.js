@@ -1,14 +1,9 @@
 "use strict"
 
-//You've reached the 7th Circle of Hell!  
-//You must defeat the demon Minotaur to escape!
-//Roll the 6-sided die to see which weapon you will use
-// 1=4-sided
-// 2=6-sided
-// 3=8-sided
-// 4=10-sided
-// 5=12-sided
-// 6=20-sided
+//function rollDie(numOfSides) {
+//	return Math.floor(Math.random() * numOfSides +1); 
+//}
+
 //Now roll to see which weapon the Minotaur will use.
 //You each have 100 HP.  You get the first attack.
 //If you roll the highest value on your die, you recover 
@@ -45,14 +40,14 @@ function weapon20 () {
 	var randomNumber = Math.floor(Math.random() * 20) + 1;
 	return randomNumber;
 }
+//var = randomNumber
 
+alert ("You\'ve reached the 7th Circle of Hell!\nYou must defeat the demon Minotaur to escape!\nRoll the 6-sided die to see which weapon you will use:\n1=4-sided\n2=6-sided\n3=8-sided\n4=10-sided\n5=12-sided\n6=20-sided");
+var selectMyWeapon = Math.floor(Math.random() * 6) + 1;
 
-alert("Roll the 6-sided die to determine your weapon:");
-var selectYourWeapon = Math.floor(Math.random() * 6) + 1;
-
-switch(selectYourWeapon) {
+switch(selectMyWeapon) {
 	case 1:
-		//call function for using 6-sided die;
+		//call function for using 4-sided die;
 		console.log("You rolled a 1.  You will use the 4-sided die.")
 		break;
 	case 2:
@@ -76,6 +71,7 @@ switch(selectYourWeapon) {
 		console.log("You rolled a 6.  You will use the 20-sided die.")
 		break;
 }
+var myWeapon = selectMyWeapon;
 //capture result in a var myWeapon and var minotaurWeapon
 alert("Roll the 6-sided die to determine the Minotaur's weapon:");
 var selectMinotaurWeapon = Math.floor(Math.random() * 6) + 1;
@@ -106,14 +102,16 @@ switch(selectMinotaurWeapon) {
 		console.log("You rolled a 6.  The Minotaur will use the 20-sided die.")
 		break;
 }
-
+var minotaurWeapon = selectMinotaurWeapon;
 //var myWeapon = (result of switchcase)
 //var minotaurWeapon = (result of switchcase)
 //var myHighestRoll = highest number on whatever wapon is selected
 //var minotaurHighestRoll = highest number on whatever wapon is selected
 var myMaxHP = 100;
 var minotaurMaxHP = 100;
-for battleMinotaur () {
+var myCurrentDamage = 0;
+var minotaurCurrentDamage = 0;
+//for/*while?*/ battleMinotaur (/*myCurrentDamage > 100 || minotaurCurrentDamage > 100 */) {
 
 	//loop my rolls/attacks
 	//save to an array/ressign variable corresponsing to minotaur's HP
@@ -123,18 +121,61 @@ for battleMinotaur () {
 
 	alert("Your roll.  Brace yourself and ATTACK!");
 	function myAttack(myWeapon) {
-		//roll, and add number onto var minotaurCurrentDamage
+		switch (myWeapon) {
+			case 1:
+				var myRollResult = weapon4();
+				break;
+			case 2:
+				var myRollResult = weapon6();
+				break;
+			case 3:
+				var myRollResult = weapon8();
+				break;
+			case 4:
+				var myRollResult = weapon10();
+				break;
+			case 5:
+				var myRollResult = weapon12();
+				break;
+			case 6:
+				var myRollResult = weapon20();
+				break;
+		}
+		console.log("You caused " + myRollResult + " damage to the Minotaur!\nThe Minotaur has " + (minotaurMaxHP - minotaurCurrentDamage) + " HP remaining.");
+
+		//roll, and add number onto var minotaurCurrentDamage +=
 		//if roll=var myHighestRoll, subtract from myCurrentDamage
 		// var minotaurMaxHP > 0, if true, continue
 		//else return console.log("You defeated the Minotaur!")
 	}
+	myAttack(selectMyWeapon);
 
 	alert("Minotaur is attacking!  Defend yourself!");
 	function minotaurAttack(minotaurWeapon) {
-		//roll, and add number onto var myCurrentDamage
+		switch (minotaurWeapon) {
+			case 1:
+				var minotaurRollResult = weapon4();
+				break;
+			case 2:
+				var minotaurRollResult = weapon6();
+				break;
+			case 3:
+				var minotaurRollResult = weapon8();
+				break;
+			case 4:
+				var minotaurRollResult = weapon10();
+				break;
+			case 5:
+				var minotaurRollResult = weapon12();
+				break;
+			case 6:
+				var minotaurRollResult = weapon20();
+				break;
+		}
+	console.log("The Minotaur caused " + minotaurRollResult + " damage to you!\nYou have " + (myMaxHP - myCurrentDamage) + " HP remaining.");
+		//roll, and add number onto var myCurrentDamage +=
 		//if roll=var minotaurHighestRoll, subtract from minotaurCurrentDamage
 		//var myMaxHP > 0, if true, continue
 		//else return console.log("You lose message")
 	}
-
-}
+	minotaurAttack(selectMinotaurWeapon);
