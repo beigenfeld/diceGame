@@ -111,7 +111,7 @@ var myMaxHP = 100;
 var minotaurMaxHP = 100;
 var myCurrentDamage = 0;
 var minotaurCurrentDamage = 0;
-//for/*while?*/ battleMinotaur (/*myCurrentDamage > 100 || minotaurCurrentDamage > 100 */) {
+//for/*while?*/ battleMinotaur (/*myCurrentDamage < 100 || minotaurCurrentDamage < 100 */) {
 
 	//loop my rolls/attacks
 	//save to an array/ressign variable corresponsing to minotaur's HP
@@ -141,6 +141,7 @@ var minotaurCurrentDamage = 0;
 				var myRollResult = weapon20();
 				break;
 		}
+		minotaurCurrentDamage += myRollResult;
 		console.log("You caused " + myRollResult + " damage to the Minotaur!\nThe Minotaur has " + (minotaurMaxHP - minotaurCurrentDamage) + " HP remaining.");
 
 		//roll, and add number onto var minotaurCurrentDamage +=
@@ -172,6 +173,7 @@ var minotaurCurrentDamage = 0;
 				var minotaurRollResult = weapon20();
 				break;
 		}
+	myCurrentDamage += minotaurRollResult;
 	console.log("The Minotaur caused " + minotaurRollResult + " damage to you!\nYou have " + (myMaxHP - myCurrentDamage) + " HP remaining.");
 		//roll, and add number onto var myCurrentDamage +=
 		//if roll=var minotaurHighestRoll, subtract from minotaurCurrentDamage
