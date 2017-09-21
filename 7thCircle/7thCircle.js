@@ -1,15 +1,12 @@
 "use strict"
 
-//roll the 4-sided die, you must get a higher value on the next-highest number sided die to continue.
-//if you make it through all 6 dies, you WIN!
-
 alert("Are you ready to roll the 4-sided die?");
 var roll4Side = Math.floor(Math.random() * 4) + 1;
 var loser = ("YOU LOSE! PREPARE FOR YOUR JOURNEY TO HELL!!");
 console.log("You rolled a " + roll4Side);
 console.log("You opened the First Gate! Proceed to the 2nd Circle!");
 
-function seventhCircle (displayRoll4side){
+function seventhCircle (Roll4side){
 	alert("Are you ready to roll the 6-sided die?");
 	var roll6Side = Math.floor(Math.random() * 6) + 1;
 	console.log("You rolled a " + roll6Side);
