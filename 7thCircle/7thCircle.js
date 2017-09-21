@@ -1,5 +1,7 @@
 "use strict"
-
+function loadMinotaur() {
+	window.location.href = "minotaur/minotaurIndex.html";
+}
 function runSeventhCircle (){
 	console.clear();
 	alert("Are you ready to roll the 4-sided die?");
@@ -51,10 +53,16 @@ function runSeventhCircle (){
 	alert("Are you ready to roll the 20-sided die?");
 	var roll20Side = Math.floor(Math.random() * 20) + 1;
 	console.log("You rolled a " + roll20Side);
+	var success = false;
 	if (roll20Side>=roll12Side) {
 		console.log("You opened the Sixth Gate! Congratulations! You've made it to the 7th Circle!");
+		success = true;
 	} else {
 		console.log("YOU LOSE! PREPARE FOR YOUR JOURNEY TO HELL!!");
 		return loser;
+	}
+	if (success = true) {
+		//hide first button - document.getElementById(“startButton”).style.display=“none”;
+		//run function to show hidden button Exit Hell's Gates
 	}
 }
