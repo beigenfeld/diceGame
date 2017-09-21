@@ -1,16 +1,5 @@
 "use strict"
 
-//function rollDie(numOfSides) {
-//	return Math.floor(Math.random() * numOfSides +1); 
-//}
-
-//Now roll to see which weapon the Minotaur will use.
-//You each have 100 HP.  You get the first attack.
-//If you roll the highest value on your die, you recover 
-//that amount in addition to afflicting that amount of damage,
-//up to 100 points.
-//The first one to get their opponent's HP to 0 or less wins.
-
 function weapon4 () {
 	var randomNumber = Math.floor(Math.random() * 4) + 1;
 	return randomNumber;
@@ -83,7 +72,6 @@ function myAttack(myWeapon) {
 	} else {
 		console.log("You caused " + myRollResult +  " damage.  You killed the Minotaur!\nYou have escaped the 7 circles of Hell!");
 	}
-	//if roll=var myHighestRoll, subtract from myCurrentDamage
 }
 
 function minotaurAttack(minotaurWeapon) {
@@ -116,9 +104,6 @@ function minotaurAttack(minotaurWeapon) {
 
 }
 
-
-
-/////////////////////////////////////
 alert ("You\'ve reached the 7th Circle of Hell!\nYou must defeat the demon Minotaur to escape!\nRoll the 6-sided die to see which weapon you will use:\n1=4-sided\n2=6-sided\n3=8-sided\n4=10-sided\n5=12-sided\n6=20-sided");
 var selectMyWeapon = Math.floor(Math.random() * 6) + 1;
 
@@ -174,13 +159,11 @@ function gainLife (maxRoll) {
 		myCurrentDamage = 0;
 	}
 }
-//var myHighestRoll = highest number on whatever wapon is selected
-//var minotaurHighestRoll = highest number on whatever wapon is selected
+
 var myMaxHP = 100;
 var minotaurMaxHP = 100;
 var myCurrentDamage = 0;
 var minotaurCurrentDamage = 0;
-
 
 while (myCurrentDamage < myMaxHP && minotaurCurrentDamage < minotaurMaxHP) {
 	alert("Your roll.  Brace yourself and ATTACK!");
