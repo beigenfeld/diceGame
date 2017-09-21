@@ -30,7 +30,15 @@ function weapon20 () {
 	return randomNumber;
 }
 
-function myAttack(myWeapon) {
+function gainLife (maxRoll, myRollResult, myCurrentDamage) {
+	myCurrentDamage -= maxRoll;
+	if (myCurrentDamage <= 0) {
+		myCurrentDamage = 0;
+	}
+	return myCurrentDamage;
+}
+
+function myAttack(myWeapon, minotaurCurrentDamage, myCurrentDamage) {
 	var myRollResult;
 	var maxRoll;
 
@@ -62,7 +70,7 @@ function myAttack(myWeapon) {
 	}
 
 	if (myRollResult === maxRoll) {
-		gainLife(maxRoll);
+		myCurrentDamage = gainLife(maxRoll, myRollResult, myCurrentDamage);
 		console.log("POWER HIT!  You have gained the vitality lost by the Minotaur! Your HP increased by " + maxRoll + " and is now " + (myMaxHP - myCurrentDamage));
 	
 	}
@@ -72,9 +80,10 @@ function myAttack(myWeapon) {
 	} else {
 		console.log("You caused " + myRollResult +  " damage.  You killed the Minotaur!\nYou have escaped the 7 circles of Hell!");
 	}
+	return minotaurCurrentDamage;
 }
 
-function minotaurAttack(minotaurWeapon) {
+function minotaurAttack(minotaurWeapon, myCurrentDamage, minotaurCurrentDamage) {
 	switch (minotaurWeapon) {
 		case 1:
 			var minotaurRollResult = weapon4();
@@ -101,77 +110,71 @@ function minotaurAttack(minotaurWeapon) {
 	} else {
 		console.log("The Minotaur caused " + minotaurRollResult + " damage to you!\nYou have been slain by the Minotaur.\nENJOY YOUR ETERNITY IN HELL!")
 	}
-
+	return myCurrentDamage;
 }
 
-alert ("You\'ve reached the 7th Circle of Hell!\nYou must defeat the demon Minotaur to escape!\nRoll the 6-sided die to see which weapon you will use:\n1=4-sided\n2=6-sided\n3=8-sided\n4=10-sided\n5=12-sided\n6=20-sided");
-var selectMyWeapon = Math.floor(Math.random() * 6) + 1;
+	var myMaxHP = 100;
+	var minotaurMaxHP = 100;
+function runMinotaur() {
+	console.clear();
+	var myCurrentDamage = 0;
+	var minotaurCurrentDamage = 0;
 
-switch(selectMyWeapon) {
-	case 1:
-		console.log("You rolled a 1.  You will use the 4-sided die.")
-		break;
-	case 2:
-		console.log("You rolled a 2.  You will use the 6-sided die.")
-		break;
-	case 3:
-		console.log("You rolled a 3.  You will use the 8-sided die.")
-		break;
-	case 4:
-		console.log("You rolled a 4.  You will use the 10-sided die.")
-		break;
-	case 5:
-		console.log("You rolled a 5.  You will use the 12-sided die.")
-		break;
-	case 6:
-		console.log("You rolled a 6.  You will use the 20-sided die.")
-		break;
-}
-var myWeapon = selectMyWeapon;
-alert("Roll the 6-sided die to determine the Minotaur's weapon:");
-var selectMinotaurWeapon = Math.floor(Math.random() * 6) + 1;
-
-switch(selectMinotaurWeapon) {
-	case 1:
-		console.log("You rolled a 1.  The Minotaur will use the 4-sided die.")
-		break;
-	case 2:
-		console.log("You rolled a 2.  The Minotaur will use the 6-sided die.")
-		break;
-	case 3:
-		console.log("You rolled a 3.  The Minotaur will use the 8-sided die.")
-		break;
-	case 4:
-		console.log("You rolled a 4.  The Minotaur will use the 10-sided die.")
-		break;
-	case 5:
-		console.log("You rolled a 5.  The Minotaur will use the 12-sided die.")
-		break;
-	case 6:
-		console.log("You rolled a 6.  The Minotaur will use the 20-sided die.")
-		break;
-}
-var minotaurWeapon = selectMinotaurWeapon;
-
-function gainLife (maxRoll) {
-	myCurrentDamage -= maxRoll;
-	if (myCurrentDamage <= 0) {
-		myCurrentDamage = 0;
+	alert ("You\'ve reached the 7th Circle of Hell!\nYou must defeat the demon Minotaur to escape!\nRoll the 6-sided die to see which weapon you will use:\n1=4-sided\n2=6-sided\n3=8-sided\n4=10-sided\n5=12-sided\n6=20-sided");
+	var selectMyWeapon = Math.floor(Math.random() * 6) + 1;
+	var myWeapon = selectMyWeapon;
+	switch(selectMyWeapon) {
+		case 1:
+			console.log("You rolled a 1.  You will use the 4-sided die.")
+			break;
+		case 2:
+			console.log("You rolled a 2.  You will use the 6-sided die.")
+			break;
+		case 3:
+			console.log("You rolled a 3.  You will use the 8-sided die.")
+			break;
+		case 4:
+			console.log("You rolled a 4.  You will use the 10-sided die.")
+			break;
+		case 5:
+			console.log("You rolled a 5.  You will use the 12-sided die.")
+			break;
+		case 6:
+			console.log("You rolled a 6.  You will use the 20-sided die.")
+			break;
 	}
-}
 
-var myMaxHP = 100;
-var minotaurMaxHP = 100;
-var myCurrentDamage = 0;
-var minotaurCurrentDamage = 0;
-
-while (myCurrentDamage < myMaxHP && minotaurCurrentDamage < minotaurMaxHP) {
-	alert("Your roll.  Brace yourself and ATTACK!");
-	myAttack(selectMyWeapon);
-	if(minotaurCurrentDamage < minotaurMaxHP) {
-		alert("Minotaur is attacking!  Defend yourself!");
-		minotaurAttack(selectMinotaurWeapon);
+	alert("Roll the 6-sided die to determine the Minotaur's weapon:");
+	var selectMinotaurWeapon = Math.floor(Math.random() * 6) + 1;
+	var minotaurWeapon = selectMinotaurWeapon;
+	switch(selectMinotaurWeapon) {
+		case 1:
+			console.log("You rolled a 1.  The Minotaur will use the 4-sided die.")
+			break;
+		case 2:
+			console.log("You rolled a 2.  The Minotaur will use the 6-sided die.")
+			break;
+		case 3:
+			console.log("You rolled a 3.  The Minotaur will use the 8-sided die.")
+			break;
+		case 4:
+			console.log("You rolled a 4.  The Minotaur will use the 10-sided die.")
+			break;
+		case 5:
+			console.log("You rolled a 5.  The Minotaur will use the 12-sided die.")
+			break;
+		case 6:
+			console.log("You rolled a 6.  The Minotaur will use the 20-sided die.")
+			break;
 	}
-} 
 
-console.log("Battle Over");
+	while (myCurrentDamage < myMaxHP && minotaurCurrentDamage < minotaurMaxHP) {
+		alert("Your roll.  Brace yourself and ATTACK!");
+		minotaurCurrentDamage = myAttack(myWeapon, minotaurCurrentDamage, myCurrentDamage);
+ 		if(minotaurCurrentDamage < minotaurMaxHP) {
+			alert("Minotaur is attacking!  Defend yourself!");
+			myCurrentDamage = minotaurAttack(minotaurWeapon, myCurrentDamage, minotaurCurrentDamage);
+		}
+	} 
+	console.log("Battle Over");
+}

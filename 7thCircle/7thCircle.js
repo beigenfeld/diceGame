@@ -1,6 +1,6 @@
 "use strict"
 
-function seventhCircle (){
+function runSeventhCircle (){
 	console.clear();
 	alert("Are you ready to roll the 4-sided die?");
 	var roll4Side = Math.floor(Math.random() * 4) + 1;
