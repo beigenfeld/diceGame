@@ -1,12 +1,13 @@
 "use strict"
 
-alert("Are you ready to roll the 4-sided die?");
-var roll4Side = Math.floor(Math.random() * 4) + 1;
-var loser = ("YOU LOSE! PREPARE FOR YOUR JOURNEY TO HELL!!");
-console.log("You rolled a " + roll4Side);
-console.log("You opened the First Gate! Proceed to the 2nd Circle!");
+function seventhCircle (){
+	console.clear();
+	alert("Are you ready to roll the 4-sided die?");
+	var roll4Side = Math.floor(Math.random() * 4) + 1;
+	var loser = ("YOU LOSE! PREPARE FOR YOUR JOURNEY TO HELL!!");
+	console.log("You rolled a " + roll4Side);
+	console.log("You opened the First Gate! Proceed to the 2nd Circle!");
 
-function seventhCircle (Roll4side){
 	alert("Are you ready to roll the 6-sided die?");
 	var roll6Side = Math.floor(Math.random() * 6) + 1;
 	console.log("You rolled a " + roll6Side);
@@ -57,4 +58,3 @@ function seventhCircle (Roll4side){
 		return loser;
 	}
 }
-seventhCircle(roll4Side);
