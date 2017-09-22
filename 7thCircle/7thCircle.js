@@ -2,6 +2,10 @@
 function loadMinotaur() {
 	window.location.href = "minotaur/minotaurIndex.html";
 }
+function showExitButton() {
+    		var exitButtonDisplay = document.getElementById('exitButton');
+    		exitButtonDisplay.style.display = 'block';
+    	}
 function runSeventhCircle (){
 	console.clear();
 	alert("Are you ready to roll the 4-sided die?");
@@ -49,7 +53,6 @@ function runSeventhCircle (){
 		console.log("YOU LOSE! PREPARE FOR YOUR JOURNEY TO HELL!!");
 		return loser;
 	}
-
 	alert("Are you ready to roll the 20-sided die?");
 	var roll20Side = Math.floor(Math.random() * 20) + 1;
 	console.log("You rolled a " + roll20Side);
@@ -60,19 +63,8 @@ function runSeventhCircle (){
 		success = true;
 	} else {
 		console.log("YOU LOSE! PREPARE FOR YOUR JOURNEY TO HELL!!");
-		return loser;
 	}
 	if (success = true) {
-		function hideStartButton() {
-    		var x = document.getElementById('startButton');
-        	x.style.display = 'none';
+    	showExitButton();
     	}
-    	function showExitButton() {
-    		var x = document.getElementById('minotaurButton');
-        	x.style.display = 'block';
-    	}
-}
-		//hide start button - document.getElementById(“startButton”).style.display=“none”;
-		//run function to show hidden button Exit Hell's Gates
-
 }
